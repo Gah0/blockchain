@@ -1,14 +1,12 @@
 #include "stdio.h"
-#include "Gblock.h"
-#include "verifyhash.h"
+#include "block_priv.h"
+#include "block_verify.h"
 
-void create_block(char hash, char mddigest);
-void add_block(char hash, int whichIndex);
-void verifychain();
-void hashPrinter(unsigned char hash[],int new_data);
-int hashCompare (unsigned char *str1, unsigned char *str2 );
+void pr_block ();
+void create_block(char inputhash);
+void add_block(int whichIndex);
+void file_write ();
 void print_all_Blocks();
-void output_Block(struct block_data *b );
 
 typedef struct block_data {
 	int index;//链条索引
@@ -31,3 +29,5 @@ typedef struct blk_data {
 	struct block_data *next_blk;//链表结构
 }*head;
 */
+
+extern char mddigest[SHA256_DIGEST_LENGTH*2+1];

@@ -1,8 +1,8 @@
 /*区块链verify部分*/
 
 #include "stdio.h"
-#include "Gblock.h"
-#include "openssl/crypto"
+#include "block.h"
+#include "block_priv.h"
 #include "block_verify.h"
 
 void verifychain()
@@ -40,7 +40,7 @@ void calculate_hash(unsigned char *str1, unsigned char *str2) {
     return 1;
 }
 
-void show_hash(unsigned char hash[], int SHA256_DIGEST_LENGTH){
+void show_hash(unsigned char hash[]){
 	int i;
 	for (i=0; i<SHA256_DIGEST_LENGTH; i++)
 		printf("%02x\n",hash[i]);
