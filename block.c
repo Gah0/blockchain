@@ -52,9 +52,6 @@ void add_block (int whichIndex; int inputnums){
 	struct block_data *new_block = malloc(sizeof(struct block_data));
 
 	currentblock->next_block = new_block;
-
-	
-	printf("在%d链条上找到%d区块", whichIndex, LengthList());
 	
 	new_block -> index = whichIndex;
 	new_block -> id = i + 1;
@@ -62,7 +59,7 @@ void add_block (int whichIndex; int inputnums){
 	new_block -> timestamp = gettimeofday();
 
 	//sha256_hash(unsigned char *buf, const unsigned char *data, size_t size)
-	sha256_hash((unsigned char*)toString(currentblock), new_block->prehash, 32);
+	sha256_hash((unsigned char *)convert_str(currentblock), new_block->prehash, 32);
 	file_write();
 }
 
@@ -82,23 +79,33 @@ void file_write(){
 	fclose(fp);
 }
 
+unsigned char *convert_str(struct block_data *blk){
+	unsigned char *str = malloc(sizeof(unsigned char)*sizeof(blk));
 
-void pr_block (){
-	struct block_data *block_head;
-
-	printf("%p", block_head);//指针
-	printf("Index:[%s]", block_head->hash);
-	printf("id:[%s]", block_head->hash);
-	printf("timestamp:[%s]", block_head->timestamp);
-	printf("prehash:[%s]", block_head->prehash);
-	printf("hash:[%s]", block_head->hash);
-//  show_hash(block->prehash, sizeof(block->prehash));
-	printf("next block:[%s]", block_head->next_block);
-
+	memcpy(str, &blk, sizeof(blk));
+	return str;
 }
 
-void print_all_Blocks(){
-	struct block_data *block_head;
+
+void pr_hash (unsigned char hash[], int hashlen){
+	int i;
+	for (i=0; i<hashlen; i++){
+		printf("%02x\n",hash[i]);
+	}
+}
+
+
+void pr_block (struct block_data *blk){
+
+	printf("%p", blk);//指针addr
+	printf("Index:[%d]\n", block_head->hash);//链条
+	printf("id:[%d]\n", block_head->hash);//区块id
+	pr_hash(blk->prehash, sizeof(blk->prehash));
+	printf("timestamp:[%s]", blk->timestamp);//时间戳
+	printf("%p\n", block_head->next_block);//指针addr
+}
+
+void pr_all_Blocks(){
 	struct block_data *currentblk = block_head;
 	int count = 0;
 
