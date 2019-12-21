@@ -16,20 +16,6 @@
 /*---------------------------------------------------------*/
 	//如果没有区块
 
-void pr_block (){
-	struct block_data *block_head;
-
-	printf("%p", block_head);//指针
-	printf("Index:[%s]", block_head->hash);
-	printf("id:[%s]", block_head->hash);
-	printf("timestamp:[%s]", block_head->timestamp);
-	printf("prehash:[%s]", block_head->prehash);
-	printf("hash:[%s]", block_head->hash);
-//  show_hash(block->prehash, sizeof(block->prehash));
-	printf("next block:[%s]", block_head->next_block);
-
-}
-
 void create_block (char inputhash){
 	struct block_data *block_head;
 
@@ -104,6 +90,19 @@ void file_write(){
 	fclose(fp);
 }
 
+void pr_block (){
+	struct block_data *block_head;
+
+	printf("%p", block_head);//指针
+	printf("Index:[%s]", block_head->hash);
+	printf("id:[%s]", block_head->hash);
+	printf("timestamp:[%s]", block_head->timestamp);
+	printf("prehash:[%s]", block_head->prehash);
+	printf("hash:[%s]", block_head->hash);
+//  show_hash(block->prehash, sizeof(block->prehash));
+	printf("next block:[%s]", block_head->next_block);
+
+}
 void print_all_Blocks(){
 	struct block_data *block_head;
 	struct block_data *currentblk = block_head;
