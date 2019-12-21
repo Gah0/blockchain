@@ -43,7 +43,6 @@ void create_block (char inputhash){
 void add_block (int whichIndex){
 	struct block_data *block_head;
 	char ph;
-	FILE *fp;
 
 	if (block_head != NULL){
 		struct block_data *currentblock = block_head;
