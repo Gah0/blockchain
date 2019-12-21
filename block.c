@@ -44,7 +44,10 @@ void add_block (int whichIndex){
 	struct block_data *block_head;
 	char ph;
 
-	if (block_head != NULL){
+	if (block_head == NULL){
+		empty_failed();
+		return;
+	}
 		struct block_data *currentblock = block_head;
 		while(currentblock->next_block){
 			currentblock=currentblock->next_block;

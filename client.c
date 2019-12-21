@@ -48,3 +48,7 @@ void blockchain_menu (struct block_data *block_head){
 		}
 	}while(1);
 }
+
+void empty_failed() {
+	printf("请先生成首个区块");
+}
