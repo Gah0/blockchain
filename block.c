@@ -52,7 +52,6 @@ void add_block (int whichIndex; int inputnums){
 	struct block_data *new_block = malloc(sizeof(struct block_data));
 
 	currentblock->next_block = new_block;
-	
 	new_block -> index = whichIndex;
 	new_block -> id = i + 1;
 	new_block -> blkdata = inputnums;
@@ -115,8 +114,8 @@ void pr_all_Blocks(){
 		currentblk = currentblk->next_block;
 	}
 }
-/*-------------------------------------------------------------------*/
 
+//计算区块数量
 int LengthList()
 {
 	struct block_data *len;
@@ -137,25 +136,4 @@ int LengthList()
 
 智能合约部分
 void trans(char sender; char receiver ; float money){
-	static int index = 0, id = 0;
-	int i = 0;
-
-	blk_data = (struct blk_data *)malloc(sizeof(struct blk_data));
-
-	if(sender !=0)
-	{
-		[].trans=0
-		[].trans=1
-	}
-
-
-	for (i=0, i<*head; i++){
-
-	}
-
-	if (block_data == NULL){
-
-	}
-	return block_data;
-}
 */

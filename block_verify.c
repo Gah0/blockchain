@@ -2,7 +2,6 @@
 
 #include "stdio.h"
 #include "block.h"
-#include "block_priv.h"
 #include "block_verify.h"
 
 void verifychain()
