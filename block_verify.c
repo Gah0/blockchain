@@ -2,7 +2,7 @@
 
 #include "block_verify.h"
 
-void calculate_hash(unsigned char *str1, unsigned char *str2) {
+unsigned char calculate_hash(unsigned char *str1, unsigned char *str2) {
     int i;  
 
     for ( i = 0; i<SHA256_DIGEST_LENGTH; i++) {
