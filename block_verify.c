@@ -39,8 +39,10 @@ void calculate_hash(unsigned char *str1, unsigned char *str2) {
     return 1;
 }
 
-void show_hash(unsigned char hash[]){
+void pr_hash(unsigned char hash[], int hashlen){
 	int i;
-	for (i=0; i<SHA256_DIGEST_LENGTH; i++)
+
+	for (i=0; i<hashlen; i++){
 		printf("%02x\n",hash[i]);
+	}
 }

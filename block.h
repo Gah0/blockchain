@@ -6,7 +6,6 @@
 void create_block(int inputnums, char hash);
 void add_block(int whichIndex);
 void file_write ();
-void pr_hash(unsigned char hash[], int hashlen);
 void pr_block ();
 void pr_all_Blocks();
 int LengthList();
