@@ -1,10 +1,6 @@
 /*区块链verify部分*/
 
-#include "stdio.h"
-#include "block.h"
 #include "block_verify.h"
-
-
 
 void verifychain()
 {

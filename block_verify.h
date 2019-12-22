@@ -1,4 +1,3 @@
-#include "stdio.h"
 #include "block.h"
 
 void verifychain();
