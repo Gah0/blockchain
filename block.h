@@ -10,7 +10,6 @@
 void create_block(int inputnums);
 void add_block(int whichIndex);
 void file_write ();
-unsigned char* convert_str(struct block_data *blk);
 void pr_block ();
 void pr_all_Blocks();
 int LengthList();

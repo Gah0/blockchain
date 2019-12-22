@@ -1,6 +1,16 @@
 /* Gah0-blockchain born in 2019 */
 #include "block.h"
 
+
+
+/*---------------------------------------------------------*/
+// 转换字符串
+unsigned char* convert_str(struct block_data *blk){
+	unsigned char *str = malloc(sizeof(unsigned char)*sizeof(blk));
+
+	memcpy(str, &blk, sizeof(blk));
+	return str;
+}
 /*---------------------------------------------------------*/
 	//如果没有区块
 
@@ -71,20 +81,13 @@ void file_write(){
 	fclose(fp);
 }
 
-unsigned char* convert_str(struct block_data *blk){
-	unsigned char *str = malloc(sizeof(unsigned char)*sizeof(blk));
-
-	memcpy(str, &blk, sizeof(blk));
-	return str;
-}
-
 void pr_block (struct block_data *blk){
 
 	printf("%p", blk);//指针addr
 	printf("Index:[%d]\n", block_head->index);//链条
 	printf("id:[%d]\n", block_head->id);//区块id
 	pr_hash(blk->prehash, sizeof(blk->prehash));
-	printf("timestamp:[%s]", blk->timestamp);//时间戳
+	printf("timestamp:[%d]", blk->timestamp);//时间戳
 	printf("%p\n", block_head->next_block);//指针addr
 }
 
