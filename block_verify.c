@@ -29,23 +29,24 @@ void verifychain(){
 	}
 
 	struct block_data *curr_blk = block_head->next_block; 
- 	struct block_data *prevhash = block_head;
+ 	struct block_data *prehash = block_head;
 
  	while(curr_blk)
  	{
  		printf("%d\n[%d]\t", count++, curr_blk->blkdata);
 		//sha256_hash((unsigned char*)"string", char buf, size_t);
- 		pr_hash(sha256_hash(convert_str(*prevhash), curr_blk->prevhash, sizeof(*prehash)));
-		printf("*****************");
-		pr_hash(curr_blk->prevhash, SHA256_DIGEST_LENGTH);
+		//SHA256("", size, destination);
+ 		pr_hash(SHA256(convert_str(*prehash), sizeof(*prehash), NULL), SHA256_DIGEST_LENGTH);
+		printf(" === ");
+		pr_hash(curr_blk->prehash, SHA256_DIGEST_LENGTH);
 	
-		if(calculate_hash(sha256_hash(convert_str(*prevhash), curr_blk->prevhash, SHA256_DIGEST_LENGTH)), sizeof(*prehash)){
+		if(calculate_hash(SHA256(convert_str(*prehash), sizeof(*prehash), NULL), curr_blk->prehash)){
 			printf("验证成功, 该区块在链上\n");
 			return;
 		}else{
   			printf("验证失败，该区块不在链上\n");
   		}
-		prevhash = curr_blk;
+		prehash = curr_blk;
 		curr_blk = curr_blk->next_block;
 	}
 }

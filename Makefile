@@ -8,9 +8,6 @@ src:$(objects)
 block.o: block.h
 block_verify.o: block_verify.h
 
-subsystem:
-	$(MAKE)	-C sha256
-
 .PHONY:clean
 
 clean:
