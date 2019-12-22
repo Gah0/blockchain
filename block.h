@@ -13,6 +13,7 @@ void file_write ();
 void pr_block ();
 void pr_all_Blocks();
 int LengthList();
+void empty_block_failed();
 
 struct block_data {
 	int index;//链条索引
