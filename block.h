@@ -3,8 +3,6 @@
 #include <string.h>
 #include <time.h>
 #include <sys/types.h>
-
-#include "block_verify.h"
 #include "sha256/sha256.h"
 
 #define SHA256_DIGEST_LENGTH 32
