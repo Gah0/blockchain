@@ -4,8 +4,7 @@
 
 void blockchain_menu (struct block_data *block_head){
 	int choise = 0, n = 0, whichIndex = 0;
-	char sender, recvier;
-	char inputnums;
+//	char sender, recvier;
 	int inputnums = 0;
 	float money = 0;
 
