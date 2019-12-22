@@ -5,20 +5,21 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include <sys/types.h>
 
 /*---------------------------------------------------------*/
 	//如果没有区块
 
-void create_block (char inputnums){
+void create_block (int inputnums){
 	struct block_data *block_head;
 
 	static int index = 0;
 	int id = 1;
 
 	if (block_head == NULL){
-		index++;
+		index += inputnums;
 
 		block_head = malloc(sizeof(struct block_data));
 
@@ -35,7 +36,7 @@ void create_block (char inputnums){
 }
 
 //如果已经存在区块了
-void add_block (int whichIndex; int inputnums){
+void add_block (int whichIndex){
 	struct block_data *block_head;
 
 	if (block_head == NULL){
@@ -54,7 +55,7 @@ void add_block (int whichIndex; int inputnums){
 	currentblock->next_block = new_block;
 	new_block -> index = whichIndex;
 	new_block -> id = i + 1;
-	new_block -> blkdata = inputnums;
+	new_block -> blkdata = 	LengthList();
 	new_block -> timestamp = gettimeofday();
 
 	//sha256_hash(unsigned char *buf, const unsigned char *data, size_t size)

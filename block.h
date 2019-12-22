@@ -1,7 +1,9 @@
-#include "stdio.h"
+#include <stdio.h>
+#include <string.h>
 #include "block_verify.h"
+#include "sha256/sha256.h"
 
-void create_block(char inputnums, char hash);
+void create_block(int inputnums, char hash);
 void add_block(int whichIndex);
 void file_write ();
 void pr_hash(unsigned char hash[], int hashlen);

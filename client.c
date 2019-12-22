@@ -6,6 +6,7 @@ void blockchain_menu (struct block_data *block_head){
 	int choise = 0, n = 0, whichIndex = 0;
 	char sender, recvier;
 	char inputnums;
+	int inputnums = 0;
 	float money = 0;
 
 	printf("区块链应用<交易账>\t\n");
@@ -30,14 +31,14 @@ void blockchain_menu (struct block_data *block_head){
 				create_block(inputnums);
 				break;
 			case 2:
-				printf("生成区块并添加到上一个区块上(add_block)");
+				printf("添加到上一个区块上(add_block)");
 				scanf("%d", &whichIndex);
 				add_block(whichIndex);
 				printf("在%d链条上找到%d区块", whichIndex, LengthList());
 				break;
 			case 3:
 				printf("打印所有区块:");
-				print_all_Blocks();
+				pr_all_Blocks();
 				break;
 			case 4:
 				printf("请输入一个区块以检查在哪个链上:");//
