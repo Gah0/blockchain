@@ -44,7 +44,7 @@ void add_block (int whichIndex){
 	struct block_data *block_head;
 
 	if (block_head == NULL){
-		empty_failed();
+		empty_block_failed();
 		return;
 	}
 
