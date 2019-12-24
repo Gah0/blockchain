@@ -7,6 +7,7 @@
 
 #define SHA256_DIGEST_LENGTH 32
 
+unsigned char* convert_str(struct block_data *blk);
 void create_block(int inputnums);
 void add_block(int whichIndex);
 void file_write ();
