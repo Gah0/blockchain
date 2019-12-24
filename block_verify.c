@@ -32,15 +32,20 @@ void verifychain(){
  	struct block_data *prehash = block_head;
 
  	while(curr_blk)
- 	{
+ 	{	
+ 		int i;
+ 		unsigned char b[i];
+
  		printf("%d\n[%d]\t", count++, curr_blk->blkdata);
 		//sha256_hash((unsigned char*)"string", char buf, size_t);
 		//SHA256("", size, destination);
- 		pr_hash(SHA256(convert_str(*prehash), sizeof(*prehash), NULL), SHA256_DIGEST_LENGTH);
+		//sha256_hash(block_head->prehash, (unsigned char *)"", sizeof("")); dest src size
+		sha256_hash(b[i], convert_str(*prehash), sizeof(*prehash));
+ 		pr_hash(b[i], SHA256_DIGEST_LENGTH);
 		printf(" === ");
 		pr_hash(curr_blk->prehash, SHA256_DIGEST_LENGTH);
 	
-		if(calculate_hash(SHA256(convert_str(*prehash), sizeof(*prehash), NULL), curr_blk->prehash)){
+		if(calculate_hash(b[i], curr_blk->prehash)){
 			printf("验证成功, 该区块在链上\n");
 			return;
 		}else{

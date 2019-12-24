@@ -26,8 +26,8 @@ void create_block (int inputnums){
 		block_head = malloc(sizeof(struct block_data));
 
 		//sha256_hash((unsigned char*)"string", char buf, size_t);
-		//sha256_hash((unsigned char *)"", block_head->prehash, sizeof(""));
-		SHA256("", sizeof(""), block_head->prehash);
+		sha256_hash(block_head->prehash, (unsigned char *)"", sizeof(""));
+		//SHA256("", sizeof(""), block_head->prehash);
 
 		block_head -> index = index;
 		block_head -> id = id;
@@ -63,8 +63,8 @@ void add_block (int whichIndex){
 	new_block -> timestamp = gettimeofday();
 
 	//sha256_hash(unsigned char *buf, const unsigned char *data, size_t size)
-	//sha256_hash((unsigned char *)convert_str(currentblock), new_block->prehash, sizeof(*currentblock));
-	SHA256(convert_str(currentblock), sizeof(*currentblock), new_block->prehash);
+	sha256_hash(new_block->prehash, (unsigned char *)convert_str(currentblock), sizeof(*currentblock));
+	//SHA256(convert_str(currentblock), sizeof(*currentblock), new_block->prehash);
 	file_write();
 }
 
