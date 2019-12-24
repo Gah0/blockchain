@@ -2,6 +2,9 @@
 
 objects = client.o block.o block_verify.o
 
+subsystem:
+	$(MAKE)	-C sha256
+
 src:$(objects)
 	cc -o src:$(objects)
 
