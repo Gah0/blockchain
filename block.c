@@ -19,6 +19,8 @@ void create_block (int inputnums){
 
 	static int index = 0;
 	int id = 1;
+	time_t t;
+	time(&t);
 
 	if (block_head == NULL){
 		index += inputnums;
@@ -32,7 +34,7 @@ void create_block (int inputnums){
 		block_head -> index = index;
 		block_head -> id = id;
 		block_head -> blkdata = inputnums;
-		block_head -> timestamp = gettimeofday();
+		block_head -> timestamp = ctime(&t);
 		file_write();
 		return;
 	}
@@ -42,6 +44,8 @@ void create_block (int inputnums){
 void add_block (int whichIndex){
 	int i = 0;
 	struct block_data *block_head;
+	time_t t;
+	time(&t);
 
 	if (block_head == NULL){
 		empty_block_failed();
@@ -60,7 +64,7 @@ void add_block (int whichIndex){
 	new_block -> index = whichIndex;
 	new_block -> id = i + 1;
 	new_block -> blkdata = 	LengthList();
-	new_block -> timestamp = gettimeofday();
+	new_block -> timestamp = ctime(&t);
 
 	//sha256_hash(unsigned char *buf, const unsigned char *data, size_t size)
 	sha256_hash(new_block->prehash, (unsigned char *)convert_str(currentblock), sizeof(*currentblock));
@@ -89,7 +93,7 @@ void pr_block (struct block_data *blk){
 	printf("Index:[%d]\n", block_head->index);//链条
 	printf("id:[%d]\n", block_head->id);//区块id
 	pr_hash(blk->prehash, sizeof(blk->prehash));
-	printf("timestamp:[%d]", blk->timestamp);//时间戳
+	printf("timestamp:[%s]\n", blk->timestamp);//时间戳
 	printf("%p\n", block_head->next_block);//指针addr
 }
 
@@ -121,8 +125,3 @@ int LengthList()
     	return length;
     }
 }
-/*
-
-智能合约部分
-void trans(char sender; char receiver ; float money){
-*/

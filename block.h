@@ -3,6 +3,7 @@
 #include <string.h>
 #include <time.h>
 #include <sys/types.h>
+#include <sys/time.h>
 #include "sha256/sha256.h"
 
 #define SHA256_DIGEST_LENGTH 32
@@ -20,7 +21,7 @@ struct block_data {
 	int index;//链条索引
 	int id;//区块id
 	int blkdata;//随机数据
-	int timestamp;//时间戳
+	char timestamp;//时间戳
 	char prehash[SHA256_DIGEST_LENGTH];//前一个哈希
 	struct block_data *next_block;//链表结构
 }*block_head;
